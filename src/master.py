@@ -1,12 +1,13 @@
-import math, os, time, threading 
-from io import open
-from Funciones import DatoPWM
-from Funciones import Discrim
-from Funciones import Discrim2
-from Funciones import Discrim3
-from Funciones import LecturaAzul
-from Funciones import LecturaRojo
-from Funciones import LecturaVerde
+import math, os, time, threading from io import open
+from funciones import DatoPWM
+from funciones import Discrim
+from funciones import Discrim2
+from funciones import Discrim3
+from funciones import LecturaAzul
+from funciones import LecturaRojo
+from funciones import LecturaVerde
+
+
 
 def RobAzul(xf,yf,c,ConsMo):
     xr = yr = xo = yo = 0

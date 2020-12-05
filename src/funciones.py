@@ -360,5 +360,3 @@ def LecturaVerde(vxp,vyp,amxp,amyp):
         amy1 = int(amyp)
 
     return(vx1,vy1,amx1,amy1)
-    
-
