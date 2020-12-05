@@ -1,4 +1,6 @@
 import math
+import os
+from io import open
 '''Función para elegir dato a mandar'''
 def DatoPWM(xf,yf,xr,yr,xo,yo,c,ConsMo):
 
@@ -54,13 +56,13 @@ def DatoPWM(xf,yf,xr,yr,xo,yo,c,ConsMo):
         else:
             Dato = 210
         ConsMo = 1
-    return(Dato,Dif,c,ConsMo)
+    return(Dato,Dif,c,ConsMo,AlpR)
 
 
 def Discrim(x1,y1,xr1,yr1,xr2,yr2,xr3,yr3):
-    VecAz = ((x1-ax1)**2+(y1-ay1)**2)**(1/2) #Distancia entre puntos
-    VecNa = ((x1-rx1)**2+(y1-ry1)**2)**(1/2)
-    VecVe = ((x1-vx1)**2+(y1-vy1)**2)**(1/2)
+    VecAz = ((x1-xr1)**2+(y1-yr1)**2)**(1/2) #Distancia entre puntos
+    VecNa = ((x1-xr2)**2+(y1-yr2)**2)**(1/2)
+    VecVe = ((x1-xr3)**2+(y1-yr3)**2)**(1/2)
 
     Series = [VecAz, VecNa, VecVe]
 
@@ -170,7 +172,7 @@ def Discrim2(x1,y1,x2,y2,xr1,yr1,xr2,yr2,xr3,yr3):
 
 
 
-def Discrim3(x1,y1,x2,y2,x3,y3,ax1,ay1,rx1,ry1,vx1,vy1,TM):
+def Discrim3(x1,y1,x2,y2,x3,y3,ax1,ay1,rx1,ry1,vx1,vy1):
 
     VecAz1 = ((x1-ax1)**2+(y1-ay1)**2)**(1/2)   #Distancia entre robot azul y pto1
     VecAz2 = ((x2-ax1)**2+(y2-ay1)**2)**(1/2)   #Distancia entre robot azul y pto2
@@ -242,3 +244,121 @@ def Discrim3(x1,y1,x2,y2,x3,y3,ax1,ay1,rx1,ry1,vx1,vy1,TM):
         yfr3 = y1    
 
     return(xfr1,yfr1,xfr2,yfr2,xfr3,yfr3)
+
+def LecturaAzul(axp,ayp,cxp,cyp):
+    azulx = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/azul/x.txt","r")
+    azuly = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/azul/y.txt","r")
+    ax = azulx.read() 
+    ay = azuly.read()
+    azulx.close()
+    azuly.close()
+         
+    celestex = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/celeste/x.txt","r")
+    celestey = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/celeste/y.txt","r")
+    cx = celestex.read()
+    cy = celestey.read()
+    celestex.close()
+    celestey.close()
+
+    try:
+        ax1 = int(ax)
+    except ValueError:
+        ax1 = int(axp)
+
+    try:
+        ay1 = int(ay)
+    except ValueError:
+        ay1 = int(ayp)
+        
+    try:
+        cx1 = int(cx)
+    except ValueError:
+        cx1 = int(cxp)
+    
+    try:
+        cy1 = int(cy)
+    except ValueError:
+        cy1 = int(cyp)
+    
+
+    return(ax1,ay1,cx1,cy1)
+
+def LecturaRojo(rxp,ryp,roxp,royp):
+    rx1 = ry1 = rox1 = roy1 = 0
+
+    rojox = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/rojo/x.txt","r")
+    rojoy = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/rojo/y.txt","r")
+    rx = rojox.read()
+    ry = rojoy.read()
+    rojox.close()
+    rojoy.close()
+    
+    rosadox = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/cafe/x.txt","r")
+    rosadoy = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/cafe/y.txt","r")
+    rox = rosadox.read() 
+    roy = rosadoy.read()
+    rosadox.close()
+    rosadoy.close()
+
+    try:
+        rx1 = int(rx)
+    except ValueError:
+        rx1 = int(rxp)
+
+    try:
+        ry1 = int(ry)
+    except ValueError:
+        ry1 = int(ryp)
+        
+    try:
+        rox1 = int(rox)
+    except ValueError:
+        rox1 = int(roxp)
+    
+    try:
+        roy1 = int(roy)
+    except ValueError:
+        roy1 = int(royp)
+
+    return(rx1,ry1,rox1,roy1)
+
+def LecturaVerde(vxp,vyp,amxp,amyp):
+    vx1 = vy1 = amx1 = amy1 = 0
+    
+    verdex = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/verde/x.txt","r")
+    verdey = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/verde/y.txt","r")
+    vx = verdex.read()
+    vy = verdey.read()
+    verdex.close()
+    verdey.close()        
+    
+    amarillox = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/amarillo/x.txt","r")
+    amarilloy = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/amarillo/y.txt","r")
+    amx = amarillox.read()
+    amy = amarilloy.read()
+    amarillox.close()
+    amarilloy.close()
+
+    try:
+        vx1 = int(vx)
+    except ValueError:
+        vx1 = int(vxp)
+
+    try:
+        vy1 = int(vy)
+    except ValueError:
+        vy1 = int(vyp)
+        
+    try:
+        amx1 = int(amx)
+    except ValueError:
+        amx1 = int(amxp)
+    
+    try:
+        amy1 = int(amy)
+    except ValueError:
+        amy1 = int(amyp)
+
+    return(vx1,vy1,amx1,amy1)
+    
+

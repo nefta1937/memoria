@@ -3,6 +3,7 @@ import socket                         #Llama las librerías necesarias para el p
 import os
 from io import open
 
+
 ack = open("C:/Users/Neftali/Desktop/Comunicación esp/ack.txt","w+")#abre el archivo de ACK
 ack.write(str(0)) ##Pone el ack en cero
 ack.close()
@@ -63,7 +64,16 @@ while True:
    blueFilePointer = open("C:/Users/Neftali/Desktop/Comunicación esp/Azul/ordena.txt","r+")
    blueData = blueFilePointer.read()
    blueFilePointer.close()
+      
    if IniBlue != blueData:
+
+      try:
+         blueData = int(blueData)
+      except ValueError:
+         blueData = 1
+         print("Dato Vacíoen azul")
+         
+      blueData = str(blueData)
       blueClient.send(blueData.encode())                 #Envía el ciclo de trabajo al cliente
       print('Azul ha cambiado a : ', blueData)
       IniBlue = blueData
@@ -71,7 +81,18 @@ while True:
    redFilePointer = open("C:/Users/Neftali/Desktop/Comunicación esp/Naranjo/ordenn.txt","r+")
    redData = redFilePointer.read()
    redFilePointer.close()
+
+   blueData = str(blueData)
+   
    if IniRed != redData:
+
+      try:
+         redData = int(redData)
+      except ValueError:
+         redData = 1
+         print("Dato Vacío en rojo")
+
+      redData = str(redData)   
       redClient.send(redData.encode())               #Envía el ciclo de trabajo al cliente
       print('Naranjo ha cambiado a : ', redData)
       IniRed = redData
@@ -81,6 +102,14 @@ while True:
    greenData = greenFilePointer.read()
    greenFilePointer.close()
    if IniGreen != greenData:
+
+      try:
+         greenData = int(greenData)
+      except ValueError:
+         greenData = 1
+         print("Dato Vacío en verde")
+
+      greenData = str(greenData)   
       greenClient.send(greenData.encode())               #Envía el ciclo de trabajo al cliente
       print('Verde ha cambiado a : ', greenData)
       IniGreen = greenData

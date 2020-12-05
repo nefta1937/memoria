@@ -1,0 +1,43 @@
+AlpRVF = math.degrees(math.atan2((y1-vy1),(x1-vx1)))*-1
+                if AlpRVF >=0:
+                    AlpRAF = AlpRVF
+                else:
+                    AlpRVF = 360 + AlpRVF
+
+                DifVe = AlpRV - AlpRVF
+                if DifVe >=0:
+                    DifVe = DifVe
+                else:
+                    DifVe = 360 + DifVe
+ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+if DifVe < 15 or DifVe >345 and ConsMoV == 1 :
+                        if c!=1:
+                            print("Moverse derecho")
+                            c=1
+                            CTRV = 1
+                        CTRV = 210
+                    #elif DifVe > 165 and DifVe < 195  and ConsMoV == 1 :
+                        #if c!=4:
+                            #print("Moverse Atrás")
+                            #c=4 
+                        #CTRV = 310
+                    else:
+                        ConsMoV = 0
+                    ##Corregir la dirección del robot
+
+                    if DifVe > 180 and DifVe < 355 and ConsMoV == 0:
+                        if c!=2:
+                            print("Girar sentido anti horario")
+                            c=2
+                            CTRV = 1
+                        else:
+                            CTRV = 5
+                    elif DifVe > 5 and DifVe <=180 and ConsMoV == 0:
+                        if c!=3:
+                            print("Girar sentido horario")
+                            c=3
+                            CTRV = 1
+                        else:
+                            CTRV = 106
+                    else:
+                        ConsMoV = 1

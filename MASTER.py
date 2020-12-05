@@ -5,6 +5,9 @@ import time
 from Funciones import DatoPWM
 from Funciones import Discrim2
 from Funciones import Discrim3
+from Funciones import LecturaAzul
+from Funciones import LecturaRojo
+from Funciones import LecturaVerde
 
 ax1=ay1=cx1=cy1=vx1=vy1=amx1=amy1=rx1=ry1=rox1=roy1=0
 cv = cn = ca = cmov = 0
@@ -24,89 +27,11 @@ while(1):
     pitr.close()
 
     if p == '1' and pi == '1' :
-        azulx = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/azul/x.txt","r")
-        azuly = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/azul/y.txt","r")
-        ax = azulx.read() 
-        ay = azuly.read()
-        azulx.close()
-        azuly.close()
-         
-        celestex = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/celeste/x.txt","r")
-        celestey = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/celeste/y.txt","r")
-        cx = celestex.read()
-        cy = celestey.read()
-        celestex.close()
-        celestey.close()
-
-        verdex = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/verde/x.txt","r")
-        verdey = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/verde/y.txt","r")
-        vx = verdex.read()
-        vy = verdey.read()
-        verdex.close()
-        verdey.close()        
-    
-        amarillox = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/amarillo/x.txt","r")
-        amarilloy = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/amarillo/y.txt","r")
-        amx = amarillox.read()
-        amy = amarilloy.read()
-        amarillox.close()
-        amarilloy.close()
         
-        rojox = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/rojo/x.txt","r")
-        rojoy = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/rojo/y.txt","r")
-        rx = rojox.read()
-        ry = rojoy.read()
-        rojox.close()
-        rojoy.close()
-    
-        rosadox = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/cafe/x.txt","r")
-        rosadoy = open("C:/Users/Neftali/Desktop/Universidad/Swarm Robot/Reconocimiento de imagen/Python/cafe/y.txt","r")
-        rox = rosadox.read() 
-        roy = rosadoy.read()
-        rosadox.close()
-        rosadoy.close()
-        
-        if ax is None:
-            ax = ax1
-        if ay is None:
-            ay = ay1
-        ax1 = int(ax)
-        ay1 = int(ay)
+        ax1,ay1,cx1,cy1 = LecturaAzul()
+        rx1,ry1,rox1,roy1 = LecturaRojo()
+        vx1,vy1,amx1,amy1 = LecturaVerde()
 
-        if cx is None:
-            cx = cx1
-        if cy is None:
-            cy = cy1
-        cx1 = int(cx)
-        cy1 = int(cy)
-
-        if amx is None:
-            amx = am1
-        if ay is None:
-            amy = am1
-        amx1 = int(amx)
-        amy1 = int(amy)
-
-        if vx is None:
-            vx = vx1
-        if ay is None:
-            vy = vy1
-        vx1 = int(vx)
-        vy1 = int(vy)
-
-        if rx is None:
-            rx = rx1
-        if ry is None:
-            ry = ry1
-        rx1 = int(rx)
-        ry1 = int(ry)
-
-        if rox is None:
-            rox = rox1
-        if roy is None:
-            roy = roy1
-        rox1 = int(rox)
-        roy1 = int(roy)
 
     ### ver si hay movimiento
 

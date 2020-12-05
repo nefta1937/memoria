@@ -10,7 +10,7 @@ from Funciones import Discrim3
 from Camara import CameraVisor
 
 def GetRobotFileName(robotName):
-    if robotName === 'Azul':
+    if robotName == 'Azul':
         return "C:/Users/Neftali/Desktop/Comunicación esp/Azul/ordena.txt"
 
 def RobAzul(xf,yf,xr,yr,xo,yo,c,ConsMo,ctra):
