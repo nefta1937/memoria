@@ -1,6 +1,7 @@
 import time
 import socket                         #Llama las librerías necesarias para el programa
-import os from io import open
+import os
+from io import open
 
 
 ack = open("C:/Users/Neftali/Desktop/Comunicación esp/ack.txt","w+")#abre el archivo de ACK

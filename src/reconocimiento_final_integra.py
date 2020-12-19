@@ -25,8 +25,8 @@ i=0
 while(1):
    
     #Caputrar una imagen y convertirla a hsv
-    valido, imagen1 = captura.read()
-    imagen = imagen1[10:800, 25:1230]
+    valido, imagen = captura.read()
+    #imagen = imagen1[10:800, 25:1230]
     if valido:
        hsv = cv2.cvtColor(imagen, cv2.COLOR_BGR2HSV)
        
@@ -43,16 +43,16 @@ while(1):
        altosR = np.array([21,222,211], dtype=np.uint8)
 
        #Guardamos el rango de colores hsv (rosado)
-       bajosC = np.array([116,56,130], dtype=np.uint8)
-       altosC = np.array([136,92,169], dtype=np.uint8) 
+       bajosC = np.array([107,47,101], dtype=np.uint8)
+       altosC = np.array([208,86,142], dtype=np.uint8) 
 
        #Guardamos el rango de colores hsv (amarillo)
        bajosY = np.array([23,232,119], dtype=np.uint8)
        altosY = np.array([40,255,189], dtype=np.uint8)
 
        #Guardamos el rango de colores hsv (celeste)
-       bajosCE = np.array([80,160,139], dtype=np.uint8)
-       altosCE = np.array([112,231,228], dtype=np.uint8)
+       bajosCE = np.array([89,130,154], dtype=np.uint8)
+       altosCE = np.array([110,225,175], dtype=np.uint8)
        
        #Crear una mascara que detecte los colores
        maskA = cv2.inRange(hsv, bajosA, altosA)
